@@ -32,6 +32,13 @@ section {
 .sec2 {
   background-color: rgb(255, 0, 85);
 }
+.sec5 {
+  background-color: #255091;
+}
+
+.sec6 {
+  background-color: #4caf50;
+}
 
 h1 {
   font-size: 90px;
@@ -71,10 +78,6 @@ p {
   max-width: 350px;
 }
 
-/* ----------------------------------------------
-   GENERELLE ANIMATIONSTILSTANDE
----------------------------------------------- */
-
 section .animate {
   opacity: 0;
   filter: blur(5px);
@@ -90,10 +93,6 @@ section.show-animate .animate {
   transform: scale(1.2);
   transition: transform 0.3s ease-in-out;
 }
-
-/* ----------------------------------------------
-   SEKTIONSANIMATIONER (SEC2 - SEC4)
----------------------------------------------- */
 
 .sec2 .animate {
   transform: translateX(100%);
@@ -119,43 +118,13 @@ section.show-animate .animate {
   transform: rotate(0deg);
 }
 
-/* ----------------------------------------------
-   SEC5 – START- OG SLUTTILSTANDE
----------------------------------------------- */
-
-/* STARTTILSTAND for sec5 
-   (billederne starter roteret og uden for skærmen) */
 .sec5 .animate {
   transform: translateX(100%) rotate(-90deg);
 }
 
-/* NÅR SEC5 ER SYNLIG (sluttilstand ved scroll)
-   – fjerner rotation + flytter billederne ind */
 .sec5.show-animate .animate {
   transform: translateX(0) rotate(0deg);
 }
-
-/* (VALGFRI) KLIK-ZOOM – eksempel på sluttilstand ved klik
-   – kombinerer alt + scale */
-.sec5.show-animate .animate.anim-scale {
-  transform: translateX(0) rotate(0deg) scale(2);
-}
-
-/* ----------------------------------------------
-   OPGAVEDEL – STUDERENDE SKAL TILFØJE NYE SLUTTILSTANDE
----------------------------------------------- */
-
-/* TODO: Opgave 2.1
-   Lav en ny sluttilstand .anim-skew, 
-   som kombinerer translateX(0), skew(-20deg) og scale(1.16) */
-
-/* TODO: Opgave 2.2
-   Lav en ny sluttilstand .anim-rotate, 
-   som kombinerer translateX(0), rotate(210deg) og scale(1.2) */
-
-/* ----------------------------------------------
-   RESPONSIVE LAYOUTS (valgfrit for styling)
----------------------------------------------- */
 
 p.animate {
   transition-delay: 0.3s;
@@ -171,7 +140,7 @@ p.animate {
   }
 }
 
-/* Small devices such as mobile  */
+/* Medium devices such as tablets  */
 @media only screen and (min-width: 480px) and (max-width: 639px) {
   .sec5 .images {
     display: flex;
@@ -179,4 +148,54 @@ p.animate {
     justify-content: center;
     gap: 25px;
   }
+}
+
+.animate {
+  cursor: pointer;
+}
+
+.anim-scale {
+  transform: scale(1.3, 1.9);
+}
+.anim-skew {
+  transform: skew(50deg, 20deg);
+}
+
+.anim-rotate {
+  transform: rotate(65deg);
+}
+
+.anim-flip {
+  transform: rotateY(195deg);
+}
+
+.sec6 .animate {
+  /* Starttilstand */
+  opacity: 0;
+  transform: translateY(200px) rotate(80deg);
+  transition: all 0.8s ease;
+}
+
+.sec6.show-animate .animate {
+  /* Sluttilstand */
+  opacity: 1;
+  transform: translateY(0) rotate(0);
+}
+
+.sec5 .images img.animate {
+  cursor: pointer;
+}
+
+.sec6 .images img {
+  max-width: 350px;
+}
+
+.anim-bounce {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
