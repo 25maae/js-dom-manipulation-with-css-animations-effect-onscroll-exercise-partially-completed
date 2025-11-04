@@ -39,6 +39,17 @@ if (sectionOne) {
    Her skal du aktivere animationerne for dyrebillederne
    via klik. Brug classList.toggle(...) som i eksemplet.
 --------------------------------------------------- */
+const horseElem = document.getElementById("img/img1.jpg");
+
+if (horseElem) {
+  horseElem.addEventListener("click", function () {
+    this.classList.toggle("scale");
+  });
+
+  horseElem.addEventListener("mouseout", function () {
+    this.classList.remove("scale");
+  });
+}
 
 /* -------------------------------------------------
    🐶 HUND → anim-scale
